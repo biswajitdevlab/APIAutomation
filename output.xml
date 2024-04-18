@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.10.4 on win32)" generated="20230513 21:05:51.455" rpa="false" schemaversion="3">
+<suite id="s1" name="Get RequestsNew &amp; TC1 Get Requests &amp; TC1 Post Requests &amp; Dictionary">
+<suite id="s1-s1" name="Get RequestsNew" source="C:\Users\soyeb\PycharmProjects\APIAutomation\TestCases\Get_RequestsNew.robot">
+<test id="s1-s1-t1" name="Get Requests" line="5">
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>https://reqres.in/api/users/2</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20230513 21:05:54.148" level="INFO">GET Request : url=https://reqres.in/api/users/2 
+ path_url=/api/users/2 
+ headers={'User-Agent': 'python-requests/2.29.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230513 21:05:54.149" level="INFO">GET Response : url=https://reqres.in/api/users/2 
+ status=200, reason=OK 
+ headers={'Date': 'Sat, 13 May 2023 15:35:54 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"118-pbdwwFo9SKNhD3Lx5iHJyngpq00"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '4595', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=tWOwHDgt8%2FXeGN3wi0N2ldUygHoa8r0BjKx82jilzz0YvExtfvV5qe4bhoD%2FdtBsGERxQHv1xs8pXevAc5d6F%2BKDVWirqG6f0LZ9dXhT9fZmPf28fcG6phOOf7GE1zEm5rkYcJMWKw%3D%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '7c6bf95378533199-BOM', 'Content-Encoding': 'gzip'} 
+ body={"data":{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg timestamp="20230513 21:05:54.149" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230513 21:05:51.646" endtime="20230513 21:05:54.149"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.reason}</arg>
+<arg>OK</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20230513 21:05:54.151" endtime="20230513 21:05:54.154"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20230513 21:05:54.155" endtime="20230513 21:05:54.155"/>
+</kw>
+<tag>API</tag>
+<status status="PASS" starttime="20230513 21:05:51.646" endtime="20230513 21:05:54.156"/>
+</test>
+<status status="PASS" starttime="20230513 21:05:51.481" endtime="20230513 21:05:54.159"/>
+</suite>
+<suite id="s1-s2" name="TC1 Get Requests" source="C:\Users\soyeb\PycharmProjects\APIAutomation\TestCases\TC1_Get_Requests.robot">
+<test id="s1-s2-t1" name="Get_UserInfo" line="11">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>myssion</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230513 21:05:54.168" level="INFO">Creating Session using : alias=myssion, url=http://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230513 21:05:54.167" endtime="20230513 21:05:54.169"/>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>myssion</arg>
+<arg>/api/uesrs/${user}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<msg timestamp="20230513 21:05:54.169" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20230513 21:05:55.226" level="INFO">GET Request : url=http://reqres.in/api/uesrs/2 (redirected) 
+ path_url=/api/uesrs/2 
+ headers={'User-Agent': 'python-requests/2.29.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230513 21:05:55.226" level="INFO">GET Response : url=https://reqres.in/api/uesrs/2 
+ status=200, reason=OK 
+ headers={'Date': 'Sat, 13 May 2023 15:35:55 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"e8-ov4wWh4/OY1IMQMqWgskYtOFnVs"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'REVALIDATED', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=qxsSSMhXqTQoIvZoDQ%2FZubU8Y%2FZ30e%2B44pp3GCz9z4z2Vcgh42iihtDlR9u8Jl5z9MfO8Yp7D5CRQRw9PI5ASpyUiK23SdNxEeKE%2FNUvdJx5Glwj6PgGG7ncb71VW0gt03wZeQxyuw%3D%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '7c6bf9575a3f6ee6-BOM', 'Content-Encoding': 'gzip'} 
+ body={"data":{"id":2,"name":"fuchsia rose","year":2001,"color":"#C74375","pantone_value":"17-2031"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg timestamp="20230513 21:05:55.226" level="INFO">C:\Users\soyeb\AppData\Roaming\Python\Python310\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230513 21:05:55.227" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230513 21:05:54.169" endtime="20230513 21:05:55.227"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230513 21:05:55.229" endtime="20230513 21:05:55.231"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230513 21:05:55.233" endtime="20230513 21:05:55.235"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.headers}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230513 21:05:55.236" endtime="20230513 21:05:55.237"/>
+</kw>
+<tag>API</tag>
+<status status="PASS" starttime="20230513 21:05:54.167" endtime="20230513 21:05:55.238"/>
+</test>
+<status status="PASS" starttime="20230513 21:05:54.162" endtime="20230513 21:05:55.239"/>
+</suite>
+<suite id="s1-s3" name="TC1 Post Requests" source="C:\Users\soyeb\PycharmProjects\APIAutomation\TestCases\TC1_Post_Requests.robot">
+<test id="s1-s3-t1" name="Put_CustomerRegistration" line="9">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${req_body}</var>
+<arg>name=Jiban</arg>
+<arg>job=Engineer</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230513 21:05:55.247" level="INFO">${req_body} = {'name': 'Jiban', 'job': 'Engineer'}</msg>
+<status status="PASS" starttime="20230513 21:05:55.245" endtime="20230513 21:05:55.247"/>
+</kw>
+<kw name="POST" library="RequestsLibrary">
+<arg>${base_url}/api/users</arg>
+<arg>json=${req_body}</arg>
+<arg>expected_status=201</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20230513 21:05:56.015" level="INFO">POST Request : url=https://reqres.in/api/users 
+ path_url=/api/users 
+ headers={'User-Agent': 'python-requests/2.29.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '36', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Jiban", "job": "Engineer"}' 
+ </msg>
+<msg timestamp="20230513 21:05:56.015" level="INFO">POST Response : url=https://reqres.in/api/users 
+ status=201, reason=Created 
+ headers={'Date': 'Sat, 13 May 2023 15:35:56 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '82', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"52-8DrbytauOjiSqo6b8I0zAfbDxVA"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=wQf%2FzYUi9RCU3Es4a4lsYvTuRY2gWKlMwv9IBC3BbDt3HEOByLk7Z%2F0aqY5bOj3QZRcTQ7lb%2FdZ6m9n%2FNR%2Fi%2FgRNIY81gmG7hzU03vSWuGgM4z%2Fo9qlMxxG8R3xpkUXPiE%2BoPDMSQQ%3D%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '7c6bf95ccfbdf2f3-BOM'} 
+ body={"name":"Jiban","job":"Engineer","id":"59","createdAt":"2023-05-13T15:35:55.956Z"} 
+ </msg>
+<status status="PASS" starttime="20230513 21:05:55.248" endtime="20230513 21:05:56.015"/>
+</kw>
+<tag>API</tag>
+<status status="PASS" starttime="20230513 21:05:55.244" endtime="20230513 21:05:56.016"/>
+</test>
+<status status="PASS" starttime="20230513 21:05:55.241" endtime="20230513 21:05:56.018"/>
+</suite>
+<suite id="s1-s4" name="Dictionary" source="C:\Users\soyeb\PycharmProjects\APIAutomation\TestCases\dictionary.robot">
+<test id="s1-s4-t1" name="creation of dictionary" line="4">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${data}</var>
+<arg>name=Rama</arg>
+<arg>course=c++</arg>
+<arg>branch=cse</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230513 21:05:56.024" level="INFO">${data} = {'name': 'Rama', 'course': 'c++', 'branch': 'cse'}</msg>
+<status status="PASS" starttime="20230513 21:05:56.024" endtime="20230513 21:05:56.024"/>
+</kw>
+<kw name="Dictionary Should Contain Key" library="Collections">
+<arg>${data}</arg>
+<arg>name</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" starttime="20230513 21:05:56.025" endtime="20230513 21:05:56.025"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${data}[name]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230513 21:05:56.026" level="INFO">Rama</msg>
+<status status="PASS" starttime="20230513 21:05:56.026" endtime="20230513 21:05:56.026"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${course}</var>
+<arg>${data}</arg>
+<arg>course</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20230513 21:05:56.027" level="INFO">${course} = c++</msg>
+<status status="PASS" starttime="20230513 21:05:56.026" endtime="20230513 21:05:56.027"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${course}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230513 21:05:56.027" level="INFO">c++</msg>
+<status status="PASS" starttime="20230513 21:05:56.027" endtime="20230513 21:05:56.028"/>
+</kw>
+<tag>API</tag>
+<status status="PASS" starttime="20230513 21:05:56.023" endtime="20230513 21:05:56.028"/>
+</test>
+<status status="PASS" starttime="20230513 21:05:56.020" endtime="20230513 21:05:56.030"/>
+</suite>
+<status status="PASS" starttime="20230513 21:05:51.457" endtime="20230513 21:05:56.032"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="4" fail="0" skip="0">API</stat>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="Get RequestsNew &amp; TC1 Get Requests &amp; TC1 Post Requests &amp; Dictionary">Get RequestsNew &amp; TC1 Get Requests &amp; TC1 Post Requests &amp; Dictionary</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Get RequestsNew">Get RequestsNew &amp; TC1 Get Requests &amp; TC1 Post Requests &amp; Dictionary.Get RequestsNew</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s2" name="TC1 Get Requests">Get RequestsNew &amp; TC1 Get Requests &amp; TC1 Post Requests &amp; Dictionary.TC1 Get Requests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s3" name="TC1 Post Requests">Get RequestsNew &amp; TC1 Get Requests &amp; TC1 Post Requests &amp; Dictionary.TC1 Post Requests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s4" name="Dictionary">Get RequestsNew &amp; TC1 Get Requests &amp; TC1 Post Requests &amp; Dictionary.Dictionary</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230513 21:05:54.169" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+</errors>
+</robot>

@@ -1,0 +1,2 @@
+TestCases\*.robot --regex
+pabot -- pabot .

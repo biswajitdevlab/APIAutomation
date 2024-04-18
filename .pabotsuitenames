@@ -1,0 +1,8 @@
+datasources:52e789d78fb0fe81817487b0137728595b13b571
+commandlineoptions:97d170e1550eee4afc0af065b78cda302a97674c
+suitesfrom:no-suites-from-option
+file:14a13eaa6a99db36aff8132a349a21c94e15bea5
+--suite TestCases.Dictionary
+--suite TestCases.Get RequestsNew
+--suite TestCases.TC1 Get Requests
+--suite TestCases.TC1 Post Requests
